@@ -1,42 +1,45 @@
 function shoppingTime(memberId, money) {
-    var barang = []
-    var obj = {}
-    if(memberId == '' || memberId == undefined){
+    var sisa = 0
+    var barang = [
+        {namabarang : 'Sepatu brand Stacattu',
+        hargabarang : 1500000
+        },
+        {namabarang : 'Baju brand Zoro',
+        hargabarang : 500000
+        },
+        {namabarang : 'Baju brand H&N',
+        hargabarang : 250000
+        },
+        {namabarang : 'Sweater brand Uniklooh',
+        hargabarang : 175000
+        },
+        {namabarang : 'Casing Handphone',
+        hargabarang : 50000
+        },
+    ]
+
+    var obj ={}
+        obj.memberId =  memberId,
+        obj.money = money,
+        obj.listPurchased = []
+    
+
+    if(memberId == '' || memberId == undefined && money == undefined){
         return 'Mohon maaf, toko X hanya berlaku untuk member saja'
-    }else {
-        obj.memberId = memberId
     }
     if (money < 50000){
         return 'Mohon maaf, uang tidak cukup'
-    } else {
-        obj.money = money
     }
-    if (money > 1500000){
-        money = money - 1500000
-        barang.push('Sepatu brand Stacattu')
-    }
-    if (money > 500000){
-        money = money - 500000
-        barang.push('Baju brand Zoro')
-    }
-    if (money > 250000){
-        money = money - 250000
-        barang.push('Baju brand H&N')
-    }
-    if (money > 175000){
-        money = money - 175000
-        barang.push('Sweater brand Uniklooh')
-    }
-    if (money > 50000){
-        money = money - 50000
-        barang.push('Casing Handphone')
-    }
-    
-    obj.listPurchased = barang
-    obj.ChangeMoney = money
-    // if(money)
-    return obj
 
+    for(var i=0; i<barang.length; i++){
+        if (money >= barang[i].hargabarang){
+            obj.listPurchased.push(barang[i].namabarang)
+            money -= barang[i].hargabarang
+        }
+        
+    }
+    obj.changeMoney = money
+    return obj
   }
   
   // TEST CASES
