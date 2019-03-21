@@ -10,7 +10,7 @@ function cariModus(arr) {
             }
         }  
     }
-    if (arrModus[0] == undefined || arr.every(val => val === arr[0])){
+    if (arrModus[0] == undefined || arrModus.length > arr.length){
         return -1
     } else {
         return arrModus[0]
