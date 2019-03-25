@@ -11,7 +11,7 @@ function naikAngkot(arrPenumpang) {
                 angka2 =j
             }
         }
-        bayar = (angka2 - angka1) * 2000
+        bayar = Math.abs((angka2 - angka1)) * 2000
         output.push({
             penumpang: arrPenumpang[i][0],
             naikDari: arrPenumpang [i][1],
